@@ -1,0 +1,65 @@
+# Example values file for production deployment
+
+# Application configuration
+app:
+  env:
+    OPENAI_API_KEY: "sk-your-openai-api-key-here"
+    RESOURCES: "web_search,file_reader,code_interpreter,database"
+    TOOLS: "search,analyze,generate,query,summarize"
+
+# Image configuration
+image:
+  repository: "your-registry.com/any-chat-gradio"
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+# Enable ingress for external access
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  hosts:
+    - host: any-chat.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: any-chat-tls
+      hosts:
+        - any-chat.example.com
+
+# Resource limits for production
+resources:
+  limits:
+    cpu: 2000m
+    memory: 4Gi
+  requests:
+    cpu: 1000m
+    memory: 2Gi
+
+# Auto-scaling configuration
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+
+# Node selection for specific node pools
+nodeSelector:
+  workload-type: "ai-applications"
+
+# Pod anti-affinity for high availability
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 100
+      podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+          - key: app.kubernetes.io/name
+            operator: In
+            values:
+            - any-chat-gradio
+        topologyKey: kubernetes.io/hostname

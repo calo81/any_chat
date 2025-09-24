@@ -1,0 +1,75 @@
+replicaCount: 1
+
+image:
+  repository: any-chat-gradio
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 7860
+  targetPort: 7860
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: any-chat-gradio.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+  requests:
+    cpu: 500m
+    memory: 1Gi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Configuration for the Gradio application
+app:
+  # Environment variables for the application
+  env:
+    OPENAI_API_KEY: ""
+    RESOURCES: "web_search,file_reader,code_interpreter"
+    TOOLS: "search,analyze,generate"
+    GRADIO_SERVER_NAME: "0.0.0.0"
+    GRADIO_SERVER_PORT: "7860"
+  
+  # Additional environment variables can be added here
+  extraEnv: []
+
+# ConfigMap configuration
+configMap:
+  create: true
+  data: {}

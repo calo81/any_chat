@@ -1,0 +1,16 @@
+.git
+.gitignore
+README.md
+helm-chart/
+*.md
+.env
+.env.local
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+.mypy_cache/
+.DS_Store
