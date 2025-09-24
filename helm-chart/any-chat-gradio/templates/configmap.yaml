@@ -1,0 +1,17 @@
+{{- if .Values.configMap.create }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "any-chat-gradio.fullname" . }}-config
+  labels:
+    {{- include "any-chat-gradio.labels" . | nindent 4 }}
+data:
+  OPENAI_API_KEY: {{ .Values.app.env.OPENAI_API_KEY | quote }}
+  RESOURCES: {{ .Values.app.env.RESOURCES | quote }}
+  TOOLS: {{ .Values.app.env.TOOLS | quote }}
+  GRADIO_SERVER_NAME: {{ .Values.app.env.GRADIO_SERVER_NAME | quote }}
+  GRADIO_SERVER_PORT: {{ .Values.app.env.GRADIO_SERVER_PORT | quote }}
+  {{- range $key, $value := .Values.configMap.data }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
+{{- end }}
