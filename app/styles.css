@@ -1,0 +1,213 @@
+/* ChatGPT-inspired Professional Color Scheme */
+.gradio-container {
+    --chatgpt-dark: #212121;
+    --chatgpt-darker: #171717;
+    --chatgpt-gray: #40414f;
+    --chatgpt-light-gray: #343541;
+    --chatgpt-border: #565869;
+    --chatgpt-text: #ececf1;
+    --chatgpt-text-secondary: #8e8ea0;
+    --chatgpt-green: #10a37f;
+    --chatgpt-blue: #0ea5e9;
+    --chatgpt-purple: #8b5cf6;
+}
+
+/* Dark professional background */
+body, .gradio-container, .gradio-container > div {
+    background: var(--chatgpt-darker) !important;
+    color: var(--chatgpt-text) !important;
+}
+
+.gradio-container .main {
+    background: var(--chatgpt-darker) !important;
+}
+
+/* Professional primary buttons - ChatGPT Green */
+.gr-button-primary {
+    background: var(--chatgpt-green) !important;
+    border-color: var(--chatgpt-green) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.gr-button-primary:hover {
+    background: #0d8a6b !important;
+    border-color: #0d8a6b !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(16, 163, 127, 0.3) !important;
+}
+
+/* Professional secondary buttons - ChatGPT Blue */
+.gr-button-secondary {
+    background: var(--chatgpt-gray) !important;
+    border-color: var(--chatgpt-border) !important;
+    color: var(--chatgpt-text) !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.gr-button-secondary:hover {
+    background: var(--chatgpt-light-gray) !important;
+    border-color: var(--chatgpt-text-secondary) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ChatGPT-style input field */
+.gr-textbox {
+    background: var(--chatgpt-light-gray) !important;
+    border: 1px solid var(--chatgpt-border) !important;
+    color: var(--chatgpt-text) !important;
+    border-radius: 24px !important;
+    font-size: 16px !important;
+    padding: 16px 20px !important;
+    min-height: 56px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+    resize: none !important;
+}
+
+.gr-textbox:focus-within {
+    border-color: var(--chatgpt-green) !important;
+    box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.15), 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    transform: translateY(-1px) !important;
+}
+
+.gr-textbox::placeholder {
+    color: var(--chatgpt-text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+.gr-textbox textarea {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    color: var(--chatgpt-text) !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    resize: none !important;
+    font-family: inherit !important;
+}
+
+.gr-textbox textarea::placeholder {
+    color: var(--chatgpt-text-secondary) !important;
+}
+
+/* Input container styling */
+.gr-textbox-container {
+    position: relative !important;
+}
+
+/* Clean send button */
+.gr-button-primary {
+    background: var(--chatgpt-green) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 8px !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(16, 163, 127, 0.2) !important;
+    transition: all 0.2s ease !important;
+    margin-left: 8px !important;
+}
+
+.gr-button-primary:hover {
+    background: #0d8a6b !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(16, 163, 127, 0.3) !important;
+}
+
+.gr-button-primary:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 6px rgba(16, 163, 127, 0.2) !important;
+}
+
+/* Input row styling */
+.gr-row {
+    align-items: center !important;
+}
+
+/* Clear button styling */
+.gr-button-secondary {
+    margin-top: 8px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+}
+
+/* Professional tab styling */
+.gr-tab-selected {
+    background: var(--chatgpt-light-gray) !important;
+    color: var(--chatgpt-text) !important;
+    border-bottom: 2px solid var(--chatgpt-green) !important;
+}
+
+.gr-tab {
+    color: var(--chatgpt-text-secondary) !important;
+    background: transparent !important;
+    border-radius: 8px 8px 0 0 !important;
+    transition: all 0.2s ease !important;
+}
+
+.gr-tab:hover {
+    background: var(--chatgpt-gray) !important;
+    color: var(--chatgpt-text) !important;
+}
+
+/* Professional chat styling */
+.gr-chatbot {
+    background: var(--chatgpt-darker) !important;
+    border: 1px solid var(--chatgpt-border) !important;
+    border-radius: 12px !important;
+}
+
+.gr-chatbot .message {
+    border-radius: 18px !important;
+    margin: 8px 0 !important;
+    padding: 12px 16px !important;
+    max-width: 85% !important;
+}
+
+.gr-chatbot .user-message {
+    background: var(--chatgpt-green) !important;
+    color: white !important;
+    margin-left: auto !important;
+}
+
+.gr-chatbot .bot-message {
+    background: var(--chatgpt-light-gray) !important;
+    color: var(--chatgpt-text) !important;
+    margin-right: auto !important;
+}
+
+/* Professional panels */
+.gr-panel {
+    background: var(--chatgpt-light-gray) !important;
+    border: 1px solid var(--chatgpt-border) !important;
+    border-radius: 12px !important;
+}
+
+/* Professional labels */
+.gr-label {
+    color: var(--chatgpt-text) !important;
+    font-weight: 500 !important;
+}
+
+/* Professional text */
+.gr-textbox, .gr-textbox textarea {
+    color: var(--chatgpt-text) !important;
+}
+
+/* Smooth transitions */
+* {
+    transition: all 0.2s ease !important;
+}

@@ -1,0 +1,13 @@
+.venv
+.env
+.env.local
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+.mypy_cache/
+.DS_Store
+any_chat.egg-info/
+any_chat_gradio.egg-info/
